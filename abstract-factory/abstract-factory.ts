@@ -28,7 +28,7 @@ class ProductB extends AbstractProductB {
 
 abstract class AbstractFactory {
   abstract createProductA(): AbstractProductA;
-  abstract createProductB(): AbstractProductA;
+  abstract createProductB(): AbstractProductB;
 }
 
 class NewYorkFactory extends AbstractFactory {
