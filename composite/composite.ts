@@ -20,26 +20,21 @@ class Team implements ArmyObject {
   }
 
   addSoldier(newSoldier: ArmyObject) {
-    const soldiers = this._soldiers.filter((soldier: ArmyObject, index) => {
-      return soldier.seq === newSoldier.seq;
-    })
-    if (soldiers.length < 1) {
-      console.log(`Soldier: ${newSoldier.seq} comes in ${this.seq}`);
-      this._soldiers.push(newSoldier);
-    } else {
+    const hasBeen = this._soldiers.includes(deadSoldier);
+    if (hasBeen) {
       console.log('The soldier is already in the team');
+      return;
     }
+    
+    console.log(`Soldier: ${newSoldier.seq} comes in ${this.seq}`);
+    this._soldiers.push(newSoldier);
   }
 
   soldierGone(deadSoldier: ArmyObject) {
-    const deads = this._soldiers.map((soldier: ArmyObject, index) => {
-      if (soldier.seq === deadSoldier.seq) {
-        return index;
-      }
-    })
-    if (deads.length > 0) {
+    const deadIndex = this._soldiers.indexOf(deadSoldier);
+    if (deadIndex > -1) {
       console.log(`Soldier: ${deadSoldier.seq} died in the fight`);
-      this._soldiers.slice(deads[0], 1);
+      this._soldiers.splice(deadIndex, 1);
     } else {
       console.log('No one dies');
     }
