@@ -1,9 +1,9 @@
 interface Coffee {
-  cost(): Number;
+  cost(): number;
 }
 
 class GeneralCoffee implements Coffee {
-  cost(): Number {
+  cost(): number {
     return 10;
   }
 }
@@ -15,25 +15,25 @@ class CoffeeExtraDecorator implements Coffee {
     this._coffee = coffee;
   }
 
-  cost(): Number {
+  cost(): number {
     return this._coffee.cost();
   }
 }
 
 class BubbleDecorator extends CoffeeExtraDecorator {
-  private _price: Number = 3;
+  private _price: number = 3;
 
-  cost(): Number {
-    return super.cost().valueOf() + this._price.valueOf();
+  cost(): number {
+    return super.cost() + this._price;
   }
 }
 
 class MilkDecorator extends CoffeeExtraDecorator {
-  private _price: Number = 2.5;
-  private _freshExtra: Number = 1.5;
+  private _price: number = 2.5;
+  private _freshExtra: number = 1.5;
 
-  cost(): Number {
-    return super.cost().valueOf() + this._price.valueOf() + this._freshExtra.valueOf();
+  cost(): number {
+    return super.cost() + this._price + this._freshExtra;
   }
 }
 
