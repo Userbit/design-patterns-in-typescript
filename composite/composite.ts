@@ -39,7 +39,7 @@ class Team implements ArmyObject {
     })
     if (deads.length > 0) {
       console.log(`Soldier: ${deadSoldier.seq} died in the fight`);
-      this._soldiers.slice(deads[0], 1);
+      this._soldiers.splice(deads[0], 1);
     } else {
       console.log('No one dies');
     }
