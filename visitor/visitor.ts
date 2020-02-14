@@ -40,13 +40,13 @@ class DecorateVisitor implements IVisitor {
 }
 
 class ItemsGroup implements Visitable {
-  private _items: Object[];
+  private _items: Visitable[];
 
   constructor() {
     this._items = [];
   }
 
-  public addItem(item: Object) {
+  public addItem(item: Visitable) {
     this._items.push(item);
   }
 
